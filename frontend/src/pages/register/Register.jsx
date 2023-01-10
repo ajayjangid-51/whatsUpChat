@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useRef } from "react";
-import "./register.css";
+// import "./register.css";
+import "../login/login.css";
 import { useHistory } from "react-router";
 
-export default function Register() {
+export default function Register({ setSignin }) {
 	const username = useRef();
 	const email = useRef();
 	const password = useRef();
@@ -31,12 +32,12 @@ export default function Register() {
 	};
 
 	return (
-		<div className="login">
+		<div className="logins">
 			<div className="loginWrapper">
-				<div className="loginLeft">
-					<h3 className="loginLogo">Whatsapp</h3>
+				{/* <div className="loginLeft">
+					<h3 className="loginLogo">Whats'up</h3>
 					<span className="loginDesc">Connect with Family and Friends.</span>
-				</div>
+				</div> */}
 				<div className="loginRight">
 					<form className="loginBox" onSubmit={handleClick}>
 						<input
@@ -70,7 +71,16 @@ export default function Register() {
 						<button className="loginButton" type="submit">
 							Sign Up
 						</button>
-						<button className="loginRegisterButton">Log into Account</button>
+
+						<button
+							className="loginRegisterButton"
+							onClick={() => {
+								// history.push("/login");
+								setSignin(true);
+							}}
+						>
+							Sign In
+						</button>
 					</form>
 				</div>
 			</div>

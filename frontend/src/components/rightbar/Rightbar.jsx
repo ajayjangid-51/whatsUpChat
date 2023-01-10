@@ -6,6 +6,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
+import { Chat } from "@material-ui/icons";
+import { IconButton } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
+import AutoGraphIcon from "@mui/icons-material/AutoGraph";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import Login from "../../pages/login/Login";
 
 export default function Rightbar({ user }) {
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -68,13 +74,14 @@ export default function Rightbar({ user }) {
 	const ProfileRightbar = () => {
 		return (
 			<>
-				{user.username !== currentUser.username && (
-					<button className="rightbarFollowButton" onClick={handleClick}>
-						{followed ? "Unfollow" : "Follow"}
-						{followed ? <Remove /> : <Add />}
-					</button>
-				)}
-				<h4 className="rightbarTitle">User information</h4>
+				<h4
+					className="rightbarTitle"
+					style={{
+						display: "flex",
+					}}
+				>
+					<AutoGraphIcon /> User Info
+				</h4>
 				<div className="rightbarInfo">
 					<div className="rightbarInfoItem">
 						<span className="rightbarInfoKey">City:</span>
@@ -95,14 +102,21 @@ export default function Rightbar({ user }) {
 						</span>
 					</div>
 				</div>
-				<h4 className="rightbarTitle">User friends</h4>
+				<h4
+					className="rightbarTitle"
+					style={{
+						display: "flex",
+					}}
+				>
+					<ContactsIcon /> Contacts
+				</h4>
 				<div className="rightbarFollowings">
 					{friends.map((friend) => (
 						<Link
 							to={"/profile/" + friend.username}
 							style={{ textDecoration: "none" }}
 						>
-							<div className="rightbarFollowing">
+							{/* <div className="rightbarFollowing">
 								<img
 									src={
 										friend.profilePicture
@@ -113,6 +127,46 @@ export default function Rightbar({ user }) {
 									className="rightbarFollowingImg"
 								/>
 								<span className="rightbarFollowingName">{friend.username}</span>
+							</div> */}
+							<div
+								className="sidebarchat"
+								style={{
+									justifyContent: "space-between",
+								}}
+							>
+								<Avatar
+									src={
+										friend.profilePicture
+											? PF + friend.profilePicture
+											: PF + "person/noAvatar.png"
+									}
+								/>
+								<div
+									className="sidebarchat_info"
+									style={{
+										flex: 1,
+									}}
+								>
+									<h2>{friend.username}</h2>
+								</div>
+								<div>
+									{/* {user.username !== currentUser.username && ( */}
+									<button
+										// className="rightbarFollowButton"
+										style={{
+											display: "flex",
+											alignItems: "center",
+											borderRadius: "1vh",
+											background: "#52ae52",
+											fontSize: "1.3vh",
+										}}
+										onClick={handleClick}
+									>
+										{followed ? "Unfollow" : "Follow"}
+										{followed ? <Remove /> : <Add />}
+									</button>
+									{/* )} */}
+								</div>
 							</div>
 						</Link>
 					))}
@@ -123,8 +177,47 @@ export default function Rightbar({ user }) {
 	return (
 		<div className="rightbar">
 			<div className="rightbarWrapper">
-				{user ? <ProfileRightbar /> : <HomeRightbar />}
-				{/* <ProfileRightbar /> */}
+				{/* {user ? <ProfileRightbar /> : <HomeRightbar />} */}
+				<div
+					className="rightbarWrapperc1"
+					// style={{
+					// 	height: "10vh",
+					// 	display: "flex",
+					// 	background: "rgb(187, 187, 187)",
+					// 	borderRadius: "1vh",
+					// 	padding: "1vh",
+					// 	alignItems: "center",
+					// 	justifyContent: "center",
+					// }}
+				>
+					<Link
+						to={"/messenger"}
+						style={{
+							"text-decoration": "none",
+							color: "black",
+							"&:visited": {
+								color: "black !important",
+							},
+						}}
+					>
+						<span
+							style={{
+								marginRight: "1vw",
+								fontWeight: "600",
+							}}
+						>
+							Switch to Whatsup Chat
+						</span>
+						<IconButton>
+							<Chat />
+						</IconButton>
+					</Link>
+				</div>
+				{/* <div className="rightbarWrapperc2">{user && <ProfileRightbar />}</div> */}
+				<div className="rightbarWrapperc2">
+					{/* {user ? <ProfileRightbar /> : <Login />} */}
+					<Login />
+				</div>
 			</div>
 		</div>
 	);

@@ -52,7 +52,7 @@ export default function Topbar() {
 								: PF + "person/noAvatar.png"
 						}
 						alt=""
-						className="topbarImg"
+						className="topbarsImg"
 					/>
 				</Link>
 			</div>

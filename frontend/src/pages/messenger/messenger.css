@@ -1,43 +1,76 @@
 .messenger {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   box-sizing:content-box;
-  height: calc(100vh - 70px);
+  /* height: calc(100vh - 70px); */
+  height: 100%;
+  width: 100%;
   display: flex;
 }
 
 .chatMenu {
-  flex: 3.5;
+  /* border: 2px solid red; */
+  flex: 2;
+  /* overflow-y: scroll; */
+  overflow: hidden;
 }
 
+.chatMenu::-webkit-scrollbar {
+	width: 8px;
+}
+.chatMenu::-webkit-scrollbar-thumb {
+	/* background: linear-gradient(transparent, #30ff00); */
+	background: rgb(165, 165, 165);
+	border-radius: 3px;
+}
+.chatMenu::-webkit-scrollbar-thumb:hover {
+	background: rgb(105, 105, 105);
+}
+
+
 .chatMenuInput {
-  width: 90%;
+  /* width: 90%; */
+  flex: 7;
   padding: 10px 0;
   border: none;
   border-bottom: 1px solid gray;
 }
 
 .chatBox {
-  flex: 5.5;
+  flex: 5.5 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .chatBoxWrapper {
+  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
+  flex: 1;
+  overflow: hidden;
   justify-content: space-between;
-  position: relative;
+  /* overflow-y: scroll; */
+  /* position: relative; */
 }
 
 .chatBoxTop {
-  height: 100%;
+  /* height: 100%; */
+  /* border: 5px solid black; */
+  /* padding: 0vh 5vw; */
+  padding: 0vh 3vw;
   overflow-y: scroll;
   padding-right: 10px;
+  flex: 1;
+  background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+	background-position: center;
+	background-repeat: repeat;
+  /* background-color: red; */
 }
 
 .chatBoxBottom {
   margin-top: 5px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .chatMessageInput {
@@ -60,19 +93,19 @@
   flex: 3;
 }
 
-.chatMenuWrapper,
-.chatBoxWrapper,
-.chatOnlineWrapper {
-  padding: 10px;
-  height: 100%;
+
+
+.chatMenuWrapper{
+  /* border: 2px solid black; */
+  overflow-y: scroll;
 }
 
 .noConversationText {
-  position: absolute;
+  /* position: absolute;
   top: 10%;
   font-size: 50px;
   color: rgb(224, 220, 220);
-  cursor: default;
+  cursor: default; */
 }
 
 @media screen and (max-width: 768px) {
@@ -92,3 +125,174 @@
     flex: 1px;
   }
 }
+
+.sidebar_header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* flex-direction: column; */
+	padding: 5px;
+	/* border-right: 5px solid blue; */
+	height: 10vh;
+	padding-left: 20px;
+	/* padding-right: 5px; */
+	border-right: 2px solid lightgray;
+}
+.sidbar__headerRight {
+	min-width: 10vw;
+	/* border: 1px solid black; */
+}
+.sidebar_search {
+	background: rgb(233, 227, 216);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 9vh;
+	padding: 10px;
+}
+.sidebar__searchContainer {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	width: 100%;
+	height: 40px;
+	border-radius: 20px;
+}
+.sidebar__searchContainer > input {
+	border: none;
+	outline-width: 0;
+	margin-left: 10px;
+}
+.sidebar_chats {
+	flex: 1;
+	/* height: ; */
+	background-color: white;
+	overflow-y: scroll;
+}
+.sidebar_chats > h1 {
+	padding: 10px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+
+.chat {
+	/* border: 2px solid rebeccapurple; */
+	flex: 0.75;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+.chat_header {
+	/* box-sizing: border-box; */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-bottom: 2px solid lightgray;
+	height: 10vh;
+}
+.chat_header_info {
+	align-self: flex-start;
+	flex: 1;
+	margin-left: 20px;
+}
+.chat_body {
+	/* display: flex; */
+	flex: 1;
+	background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+	background-position: center;
+	background-repeat: repeat;
+	/* border: 1px solid green; */
+	padding: 30px;
+	overflow-y: scroll;
+}
+.chat_message {
+	position: relative;
+	/* // position-relative ka mtlb ki aab esmeh jo bhi container honge unki position ko apn as absolute meh define kr sktehh hai.. */
+	border: 1px solid black;
+	width: fit-content;
+	background-color: white;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 3vh;
+	font-size: 15px;
+}
+.chat_messagename {
+	position: absolute;
+	top: -17px;
+	font-weight: 900;
+	font-size: 11px;
+}
+.chat_messagetime {
+	font-size: 9px;
+	margin-left: 20px;
+}
+.chat_receiver {
+	position: relative;
+	border: 1px solid black;
+	width: fit-content;
+	/* float: right; */
+	margin-left: auto;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: rgb(123, 201, 123);
+	margin-bottom: 3vh;
+	font-size: 15px;
+}
+
+.chat_receiver .chat_messagename {
+	position: absolute;
+	/* /* bottom: -17px; */
+	right: 5px;
+	font-weight: 900;
+	font-size: 11px;
+}
+.chat_writemsg {
+  background: #a19e9e;
+	display: flex;
+	margin-top: 5px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+}
+.chat_writemsg_input {
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+.chat_writemsg_input > form {
+	background-color: white;
+	border-radius: 20px;
+	display: flex;
+	flex: 1;
+	/* width: 100%; */
+}
+.chat_writemsg_input > form > input {
+  background: #dad6d6;
+	flex: 1;
+	outline-width: 0;
+	border: none;
+	padding: 10px;
+}
+.chat_writemsg_input > form > button {
+	/* background-col; */
+  background: #dad6d6;
+	border: none;
+	outline-width: 0;
+}
+
+.noConversationText{
+	/* background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png"); */
+	/* background-image: url("/frontend/public/assets/heart.png"); */
+	/* background-image: "/assets/heart.png"; */
+	background-image: url("http://localhost:8800/images/bk5.jpg");
+	background-position: center;
+	background-repeat: repeat;
+	height: 100%;
+	background-size: cover;
+
+}
+

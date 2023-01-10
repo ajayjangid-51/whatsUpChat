@@ -5,14 +5,18 @@ import Rightbar from "../../components/rightbar/Rightbar";
 import "./home.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
+import { Chat } from "@material-ui/icons";
+
 export default function Home() {
 	const { user, dispatch } = useContext(AuthContext);
 	// console.log(user);
 	return (
 		<>
-			<Topbar />
+			{/* <Topbar /> */}
+
 			<div className="homeContainer">
-				<Sidebar />
+				{/* <Sidebar /> */}
 				<Feed />
 				{/* <Rightbar user={{ k1: "v1", k2: "v2" }} /> */}
 				<Rightbar user={user} />

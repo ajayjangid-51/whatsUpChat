@@ -1,5 +1,7 @@
 .feed{
-    flex:5.5
+    flex:9;
+    /* border: 2px solid red; */
+    overflow-y: scroll;
 }
 
 .feedWrapper{

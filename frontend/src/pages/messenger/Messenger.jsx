@@ -3,12 +3,33 @@ import Topbar from "../../components/topbar/Topbar";
 import Conversation from "../../components/conversations/Conversation";
 import Message from "../../components/message/Message";
 import ChatOnline from "../../components/chatOnline/ChatOnline";
+import SearchIcon from "@material-ui/icons/Search";
+import { Avatar, IconButton } from "@material-ui/core";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
+import AttachFileOutlinedIcon from "@material-ui/icons/AttachFileOutlined";
+import Profile from "../profile/Profile";
+
+import SentimentSatisfiedOutlinedIcon from "@material-ui/icons/SentimentSatisfiedOutlined";
+import MicOutlinedIcon from "@material-ui/icons/MicOutlined";
+import SendOutlinedIcon from "@material-ui/icons/SendOutlined";
+import { useHistory } from "react-router-dom";
+
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { io } from "socket.io-client";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ChatIcon from "@material-ui/icons/Chat";
+import { Redirect } from "react-router-dom";
 
 export default function Messenger() {
+	const [chatsearchvalue, setChatsearchvalue] = useState("");
+	const [requestedUser, setrequestedUser] = useState("");
+	const [show, setshow] = useState(false);
+	const [showProfile, setShowProfile] = useState(false);
+
 	const [conversations, setConversations] = useState([]);
 	const [currentChat, setCurrentChat] = useState(null);
 	const [messages, setMessages] = useState([]);
@@ -18,6 +39,7 @@ export default function Messenger() {
 	const socket = useRef();
 	const { user } = useContext(AuthContext);
 	const scrollRef = useRef();
+	const history = useHistory();
 
 	// when the messenger-componentpage loads first time.
 	useEffect(() => {
@@ -107,33 +129,164 @@ export default function Messenger() {
 			console.log(err);
 		}
 	};
+	const handleinput = (e) => {
+		setChatsearchvalue(e.target.value);
+		if (chatsearchvalue === "") {
+			setshow(false);
+		} else setshow(true);
+	};
+	// const filteredChats = chatdetails.filter((e) => {
+	// 	return (
+	// 		e.name.toLowerCase().includes(chatsearchvalue.toLowerCase()) ||
+	// 		e.lastmsg.toLowerCase().includes(chatsearchvalue.toLowerCase())
+	// 	);
+	// });
+
+	const searchlist = () => {
+		// console.log("searchlist-function is called");
+		// if (show) {
+		// 	if (filteredChats.length == 0) {
+		// 		return <p>No chat found</p>;
+		// 	} else {
+		// 		// return <SidebarChat img={e.img} name={e.name} lastmsg={e.lastmsg} />;
+		// 		return filteredChats.map((e) => (
+		// 			<SidebarChat img={e.img} name={e.name} lastmsg={e.lastmsg} />
+		// 		));
+		// 	}
+		// }
+	};
 
 	return (
 		<>
-			<Topbar />
+			{/* <Topbar /> */}
 			<div className="messenger">
-				<div className="chatMenu">
-					<div className="chatMenuWrapper">
-						<input placeholder="Search for friends" className="chatMenuInput" />
-						{conversations.map((c) => (
-							<div onClick={() => setCurrentChat(c)}>
-								<Conversation conversation={c} currentUser={user} />
-							</div>
-						))}
+				{showProfile ? (
+					<div className="chatMenu" onClick={() => setShowProfile(false)}>
+						<Profile user={user} />
 					</div>
-				</div>
+				) : (
+					<div className="chatMenu">
+						<div className="sidebar_header">
+							{/* <Avatar src="https://scontent.fjai1-1.fna.fbcdn.net/v/t1.0-9/95579659_251943029504450_4224608541916266496_o.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=-kEKsRy4qkkAX9qpY0s&_nc_ht=scontent.fjai1-1.fna&oh=ede61f2e7978df4d9c5f2da2a4a6b46c&oe=5F9772E5" /> */}
+							{/* /> */}
+							<Avatar
+								src={
+									process.env.PUBLIC_URL + "ajayprofilepic_circlecropped.png"
+								}
+								onClick={() => setShowProfile(true)}
+							/>
+							<div className="sidbar__headerRight">
+								<IconButton
+									onClick={() => {
+										history.push("/");
+									}}
+								>
+									{/* <AccessTimeIcon /> */}
+									<HomeRoundedIcon />
+								</IconButton>
+								<IconButton>
+									<ChatIcon />
+								</IconButton>
+								<IconButton>
+									<MoreVertIcon />
+								</IconButton>
+							</div>
+						</div>
+						<div className="sidebar_search">
+							<div className="sidebar__searchContainer">
+								<IconButton>
+									<SearchIcon />
+								</IconButton>
+								<input
+									type="text"
+									placeholder="Search Chat..."
+									onChange={handleinput}
+								/>
+							</div>
+						</div>
+						<div className="chatMenuWrapper">
+							{/* <input placeholder="Search for friends" className="chatMenuInput" /> */}
+							{chatsearchvalue !== ""
+								? searchlist()
+								: conversations.map((c) => (
+										<div
+											onClick={() => {
+												setCurrentChat(c);
+												const friendId = c.members.find((m) => m !== user._id);
+
+												const getUser = async () => {
+													try {
+														const res = await axios(
+															"/users?userId=" + friendId
+														);
+														setrequestedUser(res.data);
+													} catch (err) {
+														console.log(err);
+													}
+												};
+												getUser();
+											}}
+										>
+											<Conversation
+												conversation={c}
+												currentUser={user}
+												// gotUser={requestedUser}
+												// setrequestedUser={setrequestedUser}
+											/>
+										</div>
+								  ))}
+
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+							<h1>hi</h1>
+						</div>
+					</div>
+				)}
 				<div className="chatBox">
+					{currentChat && (
+						<div className="chat_header">
+							{/* <Avatar src="https://cdn.cdnparenting.com/articles/2020/01/25153910/381833377.jpg" /> */}
+							<Avatar src={process.env.PUBLIC_URL + user.profilePicture} />
+
+							<div className="chat_header_info">
+								<h2>{requestedUser.username}</h2>
+								<p>last seen... time</p>
+							</div>
+							<div className="chat_header_right">
+								<IconButton>
+									<MoreVertIcon />
+								</IconButton>
+								<IconButton>
+									<AttachFileOutlinedIcon />
+								</IconButton>
+								<IconButton>
+									<SearchOutlinedIcon />
+								</IconButton>
+							</div>
+						</div>
+					)}
 					<div className="chatBoxWrapper">
 						{currentChat ? (
 							<>
-								<div className="chatBoxTop">
+								<div className="chatBoxTop chat_body">
 									{messages.map((m) => (
 										<div ref={scrollRef}>
 											<Message message={m} own={m.sender === user._id} />
 										</div>
 									))}
 								</div>
-								<div className="chatBoxBottom">
+								{/* <div className="chatBoxBottom">
 									<textarea
 										className="chatMessageInput"
 										placeholder="write something..."
@@ -143,16 +296,37 @@ export default function Messenger() {
 									<button className="chatSubmitButton" onClick={handleSubmit}>
 										Send
 									</button>
+								</div> */}
+								<div className="chat_writemsg">
+									<IconButton>
+										<SentimentSatisfiedOutlinedIcon />
+									</IconButton>
+									<div className="chat_writemsg_input">
+										<form>
+											<input
+												value={newMessage}
+												onChange={(e) => setNewMessage(e.target.value)}
+												type="text"
+												placeholder="write message..."
+											/>
+											<button onClick={handleSubmit} type="submit">
+												<SendOutlinedIcon />
+											</button>
+										</form>
+									</div>
+									<IconButton>
+										<MicOutlinedIcon />
+									</IconButton>
 								</div>
 							</>
 						) : (
-							<span className="noConversationText">
-								Open a conversation to start a chat.
-							</span>
+							<div className="noConversationText">
+								{/* Open a conversation to start a chat. */}
+							</div>
 						)}
 					</div>
 				</div>
-				<div className="chatOnline">
+				{/* <div className="chatOnline">
 					<div className="chatOnlineWrapper">
 						<ChatOnline
 							onlineUsers={onlineUsers}
@@ -160,7 +334,7 @@ export default function Messenger() {
 							setCurrentChat={setCurrentChat}
 						/>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</>
 	);
