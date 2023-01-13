@@ -9,6 +9,16 @@ I used MongoDB to store the user and photo data, and used Mongoose for data mode
 
 I used Redux for managing the application's state. Additionally, I implemented a search feature and filtering options to help users quickly find the photos and users they are looking for.
 
+I implemented authentication using JSON Web Tokens (JWT) and cookies, JWT is a JSON object that is used to securely transmit information between parties. I used JWT to encode the user's information, such as the user's ID and email, and then sent it as an HTTP-only and secure cookie to the client.
+
+On the client-side, I stored the JWT in the browser's cookie storage, which is a secure way to store information on the client side. Every time the client makes a request to the server, the JWT is sent in the headers of the request, allowing the server to authenticate the user.
+
+Additionally, I used bcrypt to hash the user's password before storing it in the database, which provides an added layer of security by making it difficult for anyone to access the user's password.
+
+I also implemented a middleware function that verifies the JWT on every protected route, ensuring that only authenticated users have access to certain parts of the application.
+
+Overall, using JWT and cookies for authentication allowed me to create a secure and efficient way for users to log in and access protected routes in the application
+
 Additionally, I am deciding to implemented Push Notifications to alert users of incoming messages even when they are not actively using the app.
 
 The application was designed to have similar user interface and functionality as Instagram and WhatsApp, making it easy for users to navigate and use. The goal of this project was to create a powerful, safe&secure and easy-to-use platform for photo sharing and messaging that can be used for personal and professional use.
