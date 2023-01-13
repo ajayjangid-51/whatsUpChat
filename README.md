@@ -26,10 +26,10 @@ The application was designed to have similar user interface and functionality as
 During the development of the Project, I encountered several notable accomplishments and challenges:
 
 #Accomplishments:
-  -1.Successfully implemented real-time messaging functionality using expressJs, Mongodb and WebSockets(socket.io).
-  -2.Implemented Push Notifications to alert users of incoming messages even when they are not actively using the app.
-  -3.Developed an intuitive user interface that closely mimics the design and functionality of the popular messaging app WhatsApp.
-  -4.Successfully implemented authentication and authorization using JSON Web Tokens (JWT), bcryptJs and cookies. with and integrated Firebase Authentication for         signing with Google Accounts.
+  - 1.Successfully implemented real-time messaging functionality using expressJs, Mongodb and WebSockets(socket.io).
+  - 2.Implemented Push Notifications to alert users of incoming messages even when they are not actively using the app.
+  - 3.Developed an intuitive user interface that closely mimics the design and functionality of the popular messaging app WhatsApp.
+  - 4.Successfully implemented authentication and authorization using JSON Web Tokens (JWT), bcryptJs and cookies. with and integrated Firebase Authentication for         signing with Google Accounts.
   
 #Challenges:
 
