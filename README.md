@@ -1,4 +1,4 @@
-# whatsup
+# whats'UpChat
 Messenging App
 
 I developed a photo sharing and chat messaging web application similar to Instagram and WhatsApp using the MERN stack (MongoDB, Express.js, React, and Node.js). The application allows users to upload and share photos, as well as search, follow and message other users in real-time.
