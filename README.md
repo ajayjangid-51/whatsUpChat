@@ -33,9 +33,9 @@ During the development of the Project, I encountered several notable accomplishm
   
 #Challenges:
 
-  *1.Ensuring the real-time messaging functionality was working seamlessly and with low latency.
-  *2.Implementing the push notifications in a way that was efficient and didn't drain the user's battery.
-  *3.Ensuring the application was scalable to handle large numbers of users and messages.
-  *4.Making sure that the application was secure and protected against common web vulnerabilities.
+  - 1.Ensuring the real-time messaging functionality was working seamlessly and with low latency.
+  - 2.Implementing the push notifications in a way that was efficient and didn't drain the user's battery.
+  - 3.Ensuring the application was scalable to handle large numbers of users and messages.
+  - 4.Making sure that the application was secure and protected against common web vulnerabilities.
   
 Overall, the development of this project was a challenging but rewarding experience, and it allowed me to improve my skills in web development, especially in real-time communication and Firebase.
