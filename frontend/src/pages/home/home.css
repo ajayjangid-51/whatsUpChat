@@ -1,4 +1,12 @@
 .homeContainer{
     display: flex;
     width: 100%;
+    /* border: 5px solid orange; */
+    height: 100%;
+    /* overflow: scroll; */
+}
+.home{
+    /* overflow-y: scroll; */
+    /* border: 2px solid yellow; */
+    height: 100%;
 }

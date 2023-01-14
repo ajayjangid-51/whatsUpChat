@@ -25,7 +25,7 @@ export default function Profile({ user }) {
 						<img
 							className="profileCoverImg"
 							src={
-								user.coverPicture
+								user?.coverPicture
 									? PF + user.coverPicture
 									: PF + "person/noCover.png"
 							}
@@ -34,7 +34,7 @@ export default function Profile({ user }) {
 						<img
 							className="profileUserImg"
 							src={
-								user.profilePicture
+								user?.profilePicture
 									? PF + user.profilePicture
 									: PF + "person/noAvatar.png"
 							}
@@ -42,8 +42,8 @@ export default function Profile({ user }) {
 						/>
 					</div>
 					<div className="profileInfo">
-						<h4 className="profileInfoName">Welcome {user.username}!</h4>
-						<span className="profileInfoDesc">about you:- {user.desc}</span>
+						<h4 className="profileInfoName">Welcome {user?.username}!</h4>
+						<span className="profileInfoDesc">about you:- {user?.desc}</span>
 					</div>
 					{/* <div className="profileRightBottom">
 						<Feed username={username} />

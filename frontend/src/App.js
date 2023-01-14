@@ -12,6 +12,7 @@ import {
 import { useContext, useState } from "react";
 import { AuthContext } from "./context/AuthContext";
 import Messenger from "./pages/messenger/Messenger";
+import Topbar from "./components/topbar/Topbar";
 
 function App() {
 	const { isAdmin, setisAdmin } = useState(false);
@@ -21,13 +22,17 @@ function App() {
 			<Router>
 				<Switch>
 					<Route exact path="/">
+						{/* <Topbar /> */}
+
 						{/* {user ? <Home /> : <Register />} */}
+
 						<Home />
+						{/* <h1>hii</h1> */}
 					</Route>
-					{/* <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
+					<Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
 					<Route path="/register">
 						{user ? <Redirect to="/" /> : <Register />}
-					</Route> */}
+					</Route>
 					<Route path="/messenger">
 						{!user ? <Redirect to="/" /> : <Messenger />}
 					</Route>

@@ -76,11 +76,15 @@
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: #1775ee;
+    background-color: #161c23;
     color: white;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
+}
+.loginButton:hover{
+  transform: scale(1.1);
+  transition-duration: 5;
 }
 
 .loginButton:focus{
@@ -93,7 +97,7 @@
 
 .loginForgot{
     text-align: center;
-    color: #1775ee;
+    color: wheat;
 }
 
 .loginRegisterButton{
@@ -108,4 +112,8 @@
     font-weight: 500;
     cursor: pointer;
     padding: 0vh 8vw;
+}
+.loginRegisterButton:hover{
+  transform: scale(1.1);
+  transition-duration: 5;
 }
