@@ -48,4 +48,8 @@ router.post("/login", async (req, res) => {
 	}
 });
 
+router.get("/", async (req, res) => {
+	res.send("hi i am auth/");
+});
+
 module.exports = router;
