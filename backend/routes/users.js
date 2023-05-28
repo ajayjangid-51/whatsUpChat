@@ -69,7 +69,7 @@ router.get("/all", async (req, res) => {
 router.get("/wait", async (req, res) => {
 	setTimeout(() => {
 		res.send("yeh you have waited for 5seconds");
-	}, 5000);
+	}, 1000);
 });
 
 //get friends
