@@ -47,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://whatsupchatbackend.onrender.com/api/"
+  "proxy": "https://whatsupchatbackend.onrender.com/api/*"
 }

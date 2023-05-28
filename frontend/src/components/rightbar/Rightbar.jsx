@@ -31,6 +31,7 @@ export default function Rightbar({ user }) {
 			try {
 				// const friendList = await axios.get("/users/friends/" + user._id);
 				// let friendList = await axios.get("/auth");
+				console.log("------------------");
 				let friendList = await axios.get("/");
 				console.log(friendList);
 
