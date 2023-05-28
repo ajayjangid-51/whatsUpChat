@@ -1,6 +1,6 @@
 const io = require("socket.io")(8900, {
 	cors: {
-		origin: "https://whatsupchatfrontend.onrender.com/",
+		origin: "0.0.0.0",
 	},
 });
 
