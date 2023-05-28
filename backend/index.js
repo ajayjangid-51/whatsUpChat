@@ -76,6 +76,9 @@ app.get("/", (req, res) => {
 	res.send("hi welcome...");
 });
 
+app.get("/api", (req, res) => {
+	res.send("hi i am h");
+});
 app.get("/api/h", (req, res) => {
 	res.send("hi i am h");
 });
