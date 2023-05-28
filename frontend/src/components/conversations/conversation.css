@@ -1,0 +1,54 @@
+/* .conversation {
+  border: 2px solid green;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.conversation:hover {
+  background-color: rgb(245, 243, 243);
+}
+
+.conversationImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.conversationName {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .conversationName {
+    display: none;
+  }
+} */
+
+.sidebarchat {
+  /* border: 2px solid red; */
+	display: flex;
+  /* height: 6vh; */
+	align-items: center;
+	/* justify-content: space-between; */
+	padding: 5px 10px;
+	cursor: pointer;
+	border-bottom: 1px solid lightgray;
+}
+.sidebarchat:hover {
+	background-color: rgb(76, 197, 116);
+}
+.sidebarchat:active {
+	background-color: rgb(42, 100, 62);
+}
+
+.sidebarchat_info {
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+}
+

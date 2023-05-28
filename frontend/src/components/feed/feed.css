@@ -1,0 +1,27 @@
+.feed{
+    flex:9;
+    /* border: 2px solid red; */
+    /* overflow-y: scroll; */
+    overflow: scroll;
+    /* border: 2px solid red; */
+    height: 100%;
+}
+
+.feedWrapper{
+    padding: 20px;
+    /* overflow: scroll; */
+}
+.feedc2{
+    flex:9;
+    overflow: hidden;
+
+
+    /* background-image: url("1002693-whatsapp-4.jpg"); */
+    /* background-image: url("../../..//1002693-whatsapp-4.jpg"); */
+    /* background-image: url("./1002693-whatsapp-4.jpg"); */
+    /* background-image: url("./1002693-whatsapp-4.jpg"); */
+/* background-image:image("./100/./.") */
+    /* background-size: cover; */
+    /* background-position: left; */
+
+}
