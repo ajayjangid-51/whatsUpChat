@@ -11,7 +11,7 @@ import Navbar from "../../components/topbar/Navbar";
 
 export default function Home() {
 	const { user, dispatch } = useContext(AuthContext);
-	// console.log(user);
+	console.log(user);
 	return (
 		<div
 			className="home"
