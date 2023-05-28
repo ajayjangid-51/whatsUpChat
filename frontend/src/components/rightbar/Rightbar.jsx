@@ -31,16 +31,9 @@ export default function Rightbar({ user }) {
 			try {
 				// const friendList = await axios.get("/users/friends/" + user._id);
 				// let friendList = await axios.get("/auth");
-				console.log("------------------");
-				let friendList = await axios.get("/");
-				console.log(friendList);
 
-				friendList = await axios.get("/h");
-				console.log(friendList);
-				// let friendList = await axios.get("/users");
-				// setFriends(friendList.data);
-				console.log("⭕", friendList);
-				friendList = await axios.get("/users/wait");
+				const friendList = await axios.get("/users/all");
+				setFriends(friendList.data);
 				console.log(friendList);
 			} catch (err) {
 				console.log(err);
