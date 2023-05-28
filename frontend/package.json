@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "optionalDependencies": {
-    "fsevents": "^2.0.7"
+    "fsevents": "*"
 },
   "dependencies": {
     "@emotion/react": "^11.10.5",
