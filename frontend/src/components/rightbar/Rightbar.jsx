@@ -13,6 +13,7 @@ import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import Login from "../../pages/login/Login";
 import Friend from "./Friend";
+import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
 
 export default function Rightbar({ user }) {
 	const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -94,15 +95,15 @@ export default function Rightbar({ user }) {
 					overflowY: "scroll",
 				}}
 			>
-				<h4
+				{/* <h4
 					className="rightbarTitle"
 					style={{
 						display: "flex",
 					}}
 				>
 					<AutoGraphIcon /> User Info
-				</h4>
-				<div className="rightbarInfo">
+				</h4> */}
+				{/* <div className="rightbarInfo">
 					<div className="rightbarInfoItem">
 						<span className="rightbarInfoKey">City:</span>
 						<span className="rightbarInfoValue">{user.city}</span>
@@ -121,14 +122,18 @@ export default function Rightbar({ user }) {
 								: "-"}
 						</span>
 					</div>
-				</div>
+				</div> */}
 				<h4
 					className="rightbarTitle"
 					style={{
 						display: "flex",
+						padding: "0vh 1vw",
+						alignItems: "center",
 					}}
 				>
-					<ContactsIcon /> ALL Users
+					<PeopleAltRoundedIcon />{" "}
+					<h6 style={{ marginLeft: "0.7vw" }}>My Friends</h6>
+					{/* <ContactsIcon /> ALL Users */}
 				</h4>
 				<div className="rightbarFollowings">
 					{friends.map((friend) => (

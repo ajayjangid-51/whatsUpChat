@@ -45,8 +45,8 @@ export default function Messenger() {
 	useEffect(() => {
 		// so niche means ki apnne socketio ko yeh boldiya ki if you get "getMessage"-event then you have to call "setArrivalMessage" everytime
 		// inshort we have tell to socketio ki tereko ess event pe yeh kaam krna hai.
-		// socket.current = io("ws://localhost:8900");
-		socket.current = io("https://whatsupchatsocket.onrender.com");
+		socket.current = io("ws://localhost:5000");
+		// socket.current = io("https://whatsupchatsocket.onrender.com");
 		socket.current.on("getMessage", (data) => {
 			setArrivalMessage({
 				sender: data.senderId,
@@ -172,7 +172,7 @@ export default function Messenger() {
 							{/* /> */}
 							<Avatar
 								src={
-									process.env.PUBLIC_URL + "ajayprofilepic_circlecropped.png"
+									process.env.PUBLIC_URL + "/ajayprofilepic_circlecropped.png"
 								}
 								onClick={() => setShowProfile(true)}
 							/>
@@ -258,7 +258,9 @@ export default function Messenger() {
 					{currentChat && (
 						<div className="chat_header">
 							{/* <Avatar src="https://cdn.cdnparenting.com/articles/2020/01/25153910/381833377.jpg" /> */}
-							<Avatar src={process.env.PUBLIC_URL + user.profilePicture} />
+							<Avatar
+								src={process.env.PUBLIC_URL + "/" + user.profilePicture}
+							/>
 
 							<div className="chat_header_info">
 								<h2>{requestedUser.username}</h2>

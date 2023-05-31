@@ -75,7 +75,7 @@ function Friend({ friend, currentUser }) {
 				>
 					<Link
 						to={"/profile/" + friend.username}
-						style={{ textDecoration: "none" }}
+						style={{ textDecoration: "none", display: "flex" }}
 					>
 						<Avatar
 							src={
@@ -90,7 +90,16 @@ function Friend({ friend, currentUser }) {
 								flex: 1,
 							}}
 						>
-							<h2>{friend.username}</h2>
+							<h2
+								style={{
+									fontSize: "17px",
+									color: "black",
+									fontWeight: "700",
+									paddingRight: "-9vh",
+								}}
+							>
+								{friend.username}
+							</h2>
 						</div>
 					</Link>
 
@@ -103,7 +112,8 @@ function Friend({ friend, currentUser }) {
 								alignItems: "center",
 								borderRadius: "1vh",
 								background: "#52ae52",
-								fontSize: "1.3vh",
+								fontSize: "1vh",
+								height: "3.1vh",
 								zIndex: 10000,
 							}}
 							// onClick={async () => {
