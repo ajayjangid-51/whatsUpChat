@@ -45,8 +45,8 @@ export default function Messenger() {
 	useEffect(() => {
 		// so niche means ki apnne socketio ko yeh boldiya ki if you get "getMessage"-event then you have to call "setArrivalMessage" everytime
 		// inshort we have tell to socketio ki tereko ess event pe yeh kaam krna hai.
-		socket.current = io("ws://localhost:5000");
-		// socket.current = io("https://whatsupchatsocket.onrender.com");
+		// socket.current = io("ws://localhost:5000");
+		socket.current = io("https://whatsupchatsocket.onrender.com");
 		socket.current.on("getMessage", (data) => {
 			setArrivalMessage({
 				sender: data.senderId,
