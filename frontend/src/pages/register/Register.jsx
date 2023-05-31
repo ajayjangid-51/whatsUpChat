@@ -1,8 +1,11 @@
 import axios from "axios";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+
 // import "./register.css";
 import "../login/login.css";
 import { useHistory } from "react-router";
+import { loginCall } from "../../apiCalls";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Register({ setSignin }) {
 	const username = useRef();
@@ -10,6 +13,7 @@ export default function Register({ setSignin }) {
 	const password = useRef();
 	const passwordAgain = useRef();
 	const history = useHistory();
+	const { isFetching, dispatch } = useContext(AuthContext);
 
 	const handleClick = async (e) => {
 		e.preventDefault();
@@ -23,7 +27,11 @@ export default function Register({ setSignin }) {
 			};
 			try {
 				await axios.post("/auth/register", user);
-				history.push("/login");
+				// history.push("/");
+				loginCall(
+					{ email: email.current.value, password: password.current.value },
+					dispatch
+				);
 			} catch (err) {
 				console.log("err in registering user");
 				console.log(err);
